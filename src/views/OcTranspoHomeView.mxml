@@ -2,7 +2,15 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" title="HomeView">
 	<fx:Declarations>
+<<<<<<< HEAD
 <!-- WHAT THE FUCK?!?!?! Please work DERPITY DERPueriaogdkljadsklgakldgjkl;asndklgn-->
 	
+=======
+<!-- WHAT THE FUCK?!?!?! Please work     i like chris
+		hey guys
+		testing
+		WHY CANT WE JUST PROGRAM ALREADY!!!!!-->
+
+>>>>>>> 7058c956d732d280cdf7ae9423b23ce235de0492
 	</fx:Declarations>
 </s:View>
