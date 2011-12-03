@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" title="Oc Transpo Mobile APP">
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		color="#FF0C0C" tabBarVisible="true" title="Oc Transpo Mobile APP">
 	<fx:Declarations>
 
 	</fx:Declarations>
 	<s:VGroup width="100%" height="100%" verticalAlign="top" horizontalAlign="center">
-		
-		<s:Button x="400" y="100" label=""  styleName="back"/>
+		<s:Label x="7" width="626" height="72" color="#FF0C0C" text="What do you want to do?"
+				 verticalAlign="bottom"/>
+	</s:VGroup>
+	<s:VGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center">
+		<s:Button label="Button"/>
 	</s:VGroup>
 </s:View>
