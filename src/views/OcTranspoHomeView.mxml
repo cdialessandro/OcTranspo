@@ -11,6 +11,7 @@
 			  horizontalCenter="-145" verticalCenter="-300"/>
 	<s:Button width="215" label="Find A Bus Near Me" color="#000000" fontSize="18"
 			  horizontalCenter="-145" verticalCenter="-215"/>
+	<s:Image x="450" y="-4" source="assets/OcTranspologo.gif"/>
 	
 	
 </s:View>
