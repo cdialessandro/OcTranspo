@@ -2,7 +2,7 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		color="#FF0000" overlayControls="true" tabBarVisible="true"
-		title="Ottawa Bussing">
+		title="Ottawa Transit +">
 	<fx:Declarations>
 
 	</fx:Declarations>
