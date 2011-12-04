@@ -5,11 +5,12 @@
 	<fx:Declarations>
 
 	</fx:Declarations>
-	<s:VGroup width="100%" height="100%" verticalAlign="top" horizontalAlign="center">
-		
-	</s:VGroup>
-	<s:VGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center">
-		
-		
-	</s:VGroup>
+	<s:Label fontSize="26" fontWeight="bold" horizontalCenter="-110"
+			 text="What Would You Like To Do?" verticalCenter="-375"/>
+	<s:Button width="215" label="Check Bus Times" color="#000000" fontSize="18"
+			  horizontalCenter="-145" verticalCenter="-300"/>
+	<s:Button width="215" label="Find A Bus Near Me" color="#000000" fontSize="18"
+			  horizontalCenter="-145" verticalCenter="-215"/>
+	
+	
 </s:View>
