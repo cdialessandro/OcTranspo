@@ -3,20 +3,16 @@
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		color="#FF0000" overlayControls="true" tabBarVisible="true"
 		title="Ottawa Transit +">
+	
+	<s:TabbedViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+									  xmlns:s="library://ns.adobe.com/flex/spark" applicationDPI="160">
+		<s:ViewNavigator label="Home" width="100%" height="100%" firstView="views.OcTranspoHomeView"/>
+		<s:ViewNavigator label="Bus Times" width="100%" height="100%" firstView="views.BusTimesView"/>
+		<s:ViewNavigator label="Nearby Busses" width="100%" height="100%" firstView="views.NearbyBussesView"/>
+		<s:ViewNavigator label="Favorites" width="100%" height="100%" firstView="views.FavoritesView"/>
+		</s:TabbedViewNavigatorApplication>
 	<fx:Declarations>
 
 	</fx:Declarations>
-	<s:Label width="338" height="213" fontSize="26" fontWeight="bold" horizontalCenter="139"
-			 text="Can somebody figure out how to get tabs at the bottom of the app, so instead of having buttons we have seperate tabs for each page"
-			 verticalCenter="-203"/>
-	<s:Button width="215" label="Check Bus Times" color="#000000" fontSize="18"
-			  horizontalCenter="-145" verticalCenter="-300"/>
-	<s:Button width="215" label="Find A Bus Near Me" color="#000000" fontSize="18"
-			  horizontalCenter="-145" verticalCenter="-215"/>
-	<s:Button width="215" label="Buses I take" color="#000000" fontSize="18"
-			  horizontalCenter="-145" verticalCenter="-130"/>
-	<s:Button width="325" height="86" label="Favourite routes and shortcuts" color="#000000"
-			  fontSize="18" horizontalCenter="-141" verticalCenter="-48"/>
-	
-	
+		
 </s:View>
