@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:s="library://ns.adobe.com/flex/spark"
-		color="#FF0C0C" tabBarVisible="true" title="Oc Transpo Mobile APP">
+		color="#FF0000" overlayControls="true" tabBarVisible="true"
+		title="Ottawa Bussing">
 	<fx:Declarations>
 
 	</fx:Declarations>
-	<s:Label width="338" height="213" fontSize="26" fontWeight="bold" horizontalCenter="131"
-			 text="Why don't we all pick a screen and work on it and maybe one day over the next week we could all work on the google search together?"
-			 verticalCenter="-279"/>
+	<s:Label width="338" height="213" fontSize="26" fontWeight="bold" horizontalCenter="129"
+			 text="Can somebody figure out how to get tabs at the bottom of the app, so instead of having buttons we have seperate tabs for each page"
+			 verticalCenter="-286"/>
 	<s:Button width="215" label="Check Bus Times" color="#000000" fontSize="18"
 			  horizontalCenter="-145" verticalCenter="-300"/>
 	<s:Button width="215" label="Find A Bus Near Me" color="#000000" fontSize="18"
 			  horizontalCenter="-145" verticalCenter="-215"/>
 	<s:Image x="450" y="-4" source="assets/OcTranspologo.gif"/>
-	<s:Button width="215" label="Buses I take?" color="#000000" fontSize="18"
+	<s:Button width="215" label="Buses I take" color="#000000" fontSize="18"
 			  horizontalCenter="-145" verticalCenter="-130"/>
-	<s:Button width="325" height="86" label="Favourite routes and shortcuts?" color="#000000"
+	<s:Button width="325" height="86" label="Favourite routes and shortcuts" color="#000000"
 			  fontSize="18" horizontalCenter="-141" verticalCenter="-48"/>
 	
 	
