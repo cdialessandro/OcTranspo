@@ -7,24 +7,33 @@
 
 	<fx:Declarations>
 	</fx:Declarations>
-<!--
-	everyone read this
- http://coenraets.org/flexandroid90/FlexAndroid90Minutes.pdf
--->	
+	<s:List id="list" left="0" right="0" top="90" bottom="0" color="#000000"
+			dataProvider="{home_data}" labelField="lastName">
+		
+		<s:itemRenderer>
+			<fx:Component>
+				<s:IconItemRenderer
+					
+					label="{data.title}"
+					messageField="label"
+				
+				/>
+			</fx:Component>
+		</s:itemRenderer>
+			
+	</s:List>
+
 <fx:Script>
 	<![CDATA[
 		import mx.collections.ArrayCollection;
+		[Bindable]
+		public var home_data:ArrayCollection = new ArrayCollection([
+			{title: "Bus Times" , label :"Find Your Bus Times"},
+			{title: "Nearby Busses" , label :"Find a Bus Nearby"},
+			{title: "Favorites" , label :"Your most frequent busses"},
+			
+			]);
 	]]>
 </fx:Script>
-	<s:List id="list" top="0" bottom="0" left="0" right="0" 
-			labelField="lastName">
-		<s:dataProvider>
-			<s:ArrayCollection id="stateArray">
-				<fx:Object label="AL" data="Montgomery"/>
-				<fx:Object label="AK" data="Juneau"/>
-				<fx:Object label="AR" data="Little Rock"/>
-			</s:ArrayCollection>
-		</s:dataProvider>
-	</s:List>
 
 </s:View>
