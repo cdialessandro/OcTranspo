@@ -8,8 +8,24 @@
 	
 	<fx:Declarations>
 	</fx:Declarations>
-// everyone read this
-// http://coenraets.org/flexandroid90/FlexAndroid90Minutes.pdf
-	
+<!--
+	everyone read this
+ http://coenraets.org/flexandroid90/FlexAndroid90Minutes.pdf
+-->	
+<fx:Script>
+	<![CDATA[
+		import mx.collections.ArrayCollection;
+	]]>
+</fx:Script>
+	<s:List id="list" top="0" bottom="0" left="0" right="0" 
+			labelField="lastName">
+		<s:dataProvider>
+			<s:ArrayCollection id="stateArray">
+				<fx:Object label="AL" data="Montgomery"/>
+				<fx:Object label="AK" data="Juneau"/>
+				<fx:Object label="AR" data="Little Rock"/>
+			</s:ArrayCollection>
+		</s:dataProvider>
+	</s:List>
 
 </s:View>
