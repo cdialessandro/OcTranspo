@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" title="NearbyBussesView">
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Nearby Busses">
 	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	
 	</fx:Declarations>
 	<s:VGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center">       
-		<s:Label text="Nearby Busses"/>
-		<s:Button label="back" click="navigator.popToFirstView()" styleName="back"/>      
+		
+		<s:Button label="Return to Home Page" click="navigator.popToFirstView()" styleName="back"/>      
 	</s:VGroup>
 </s:View>
