@@ -32,6 +32,7 @@
 		public var home_data:ArrayCollection = new ArrayCollection([
 			{title: "Bus Times" , label :"Find Your Bus Times"},
 			{title: "Nearby Busses" , label :"Find a Bus Nearby"},
+			{title: "Plan Your Route" , label :"Find The Most Efficient Route"},
 			{title: "Favorites" , label :"Your Favorite Busses"},
 			]);
 		
@@ -49,9 +50,12 @@
 						navigator.pushView(NearbyBussesView)
 						break;
 					case 2:
+						navigator.pushView(RoutePlanningView)
+						break;
+					case 3:
 						navigator.pushView(FavoritesView)
 						break;
-					
+				
 				}
 		}
 		
