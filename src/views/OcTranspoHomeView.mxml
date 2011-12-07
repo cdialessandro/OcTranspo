@@ -31,7 +31,7 @@
 		public var home_data:ArrayCollection = new ArrayCollection([
 			{title: "Bus Times" , label :"Find Your Bus Times"},
 			{title: "Nearby Busses" , label :"Find a Bus Nearby"},
-			{title: "Favorites" , label :"Your most frequent busses"},
+			{title: "Favorites" , label :"Your Most Frequent Busses"},
 			
 			]);
 	]]>
