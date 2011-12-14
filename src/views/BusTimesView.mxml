@@ -18,8 +18,8 @@
 		</s:itemRenderer>
 		
 	</s:List>
-	<s:TextInput id="textbox" x="169" y="26" width="451" change="search(textbox.text)"/>
-	<s:Label x="31" y="39" id="lbl"/>
+	<s:TextInput id="textbox" x="178" y="26" width="442" change="search(textbox.text)"/>
+	<s:Label id="lbl" x="31" y="26" width="139" height="55"/>
 	<fx:Script>
 		<![CDATA[
 			import mx.collections.ArrayCollection;
@@ -27,27 +27,27 @@
 			import spark.events.IndexChangeEvent;
 			[Bindable]
 			public var home_data:ArrayCollection = new ArrayCollection([
-				{route: "114", direction: "null"},
-				{route: "97" , direction: "null"},
-				{route: "118", direction: "null"},
-				{route: "146", direction: "null"},
-				{route: "87", direction: "null"},
-				{route: "1" , direction: "null"},
-				{route: "86", direction: "null"},
-				{route: "112", direction: "null"},
-				{route: "144", direction: "null"},
+				{route: "114", num: 114},
+				{route: "97" , num: 97},
+				{route: "118", num: 118},
+				{route: "146", num: 146},
+				{route: "87", num: 87},
+				{route: "1" , num: 1},
+				{route: "86", num: 86},
+				{route: "112", num: 112},
+				{route: "144", num: 144},
 				
 				]);
 			[Bindable]
 			public var new_data:ArrayCollection = home_data
-			
+			public var i:int
 			public function search(query:String):void
 			{
-				lbl.text=query.length.toString()
+				var hold:Object;
 				new_data=new ArrayCollection();
 				var a:int = 0
 				
-				for (var i:int;i<home_data.length;i++)
+				for (i=0;i<home_data.length;i++)
 				{
 					var b:String = home_data[i].route
 					if (query.length == 3)
@@ -90,9 +90,20 @@
 				{
 					new_data = home_data
 				}
-				
+				lbl.text = new_data.length.toString()
+				for (var j:int=0; j<new_data.length/2;j++)
+				{
+					for (i=new_data.length/2-1; i>=1;i--)
+					{
+						if (new_data[i].num < new_data[i-1].num)
+						{
+							hold = new_data[i-1]
+							new_data[i-1] = new_data[i]
+							new_data[i] = hold
+						}
+					}
+				}
 			}
-			
 			
 			
 			]]>
