@@ -18,8 +18,8 @@
 		</s:itemRenderer>
 		
 	</s:List>
-	<s:TextInput id="textbox" x="178" y="26" width="442" change="search(textbox.text)"/>
-	<s:Label id="lbl" x="31" y="26" width="139" height="55"/>
+	<s:TextInput id="textbox" x="10" y="10" width="620" height="82" change="search(textbox.text)"/>
+	<s:Label id="lbl" x="0" y="26" width="47"/>
 	<fx:Script>
 		<![CDATA[
 			import mx.collections.ArrayCollection;
@@ -39,14 +39,14 @@
 				
 				]);
 			[Bindable]
-			public var new_data:ArrayCollection = home_data
+			public var new_data:ArrayCollection = sort(home_data)
 			public var i:int
 			public function search(query:String):void
 			{
 				var hold:Object;
 				new_data=new ArrayCollection();
 				var a:int = 0
-				
+			
 				for (i=0;i<home_data.length;i++)
 				{
 					var b:String = home_data[i].route
@@ -67,7 +67,7 @@
 								if (query.charAt(1) == b.charAt(1))
 									{
 									new_data.addItem(home_data[i])
-									a=1
+									
 									}
 							}
 						
@@ -77,34 +77,42 @@
 						if (query.charAt(0) == b.charAt(0))
 							{
 								new_data.addItem(home_data[i])
-									a=1
+								
 							}
 					}
-					else 
+					else if (query.length == 0)
 					{
 						new_data = home_data
 						break;
 					}
+					
 				}
-				if (a != 1)
-				{
-					new_data = home_data
-				}
-				lbl.text = new_data.length.toString()
-				for (var j:int=0; j<new_data.length/2;j++)
-				{
-					for (i=new_data.length/2-1; i>=1;i--)
-					{
-						if (new_data[i].num < new_data[i-1].num)
-						{
-							hold = new_data[i-1]
-							new_data[i-1] = new_data[i]
-							new_data[i] = hold
-						}
-					}
-				}
+
+				new_data = sort (new_data);
+				
+		
 			}
+		public function sort (a:ArrayCollection):ArrayCollection
+		{
+			var hold:Object
+			var j:int
+			var i:int 
+			//lbl.text = a.length.toString()
 			
+			for (i = 1; i < (a.length);i++)
+			{
+				j=i;
+				while (j > 0 && a[j-1].num > a[j].num)
+				{
+					hold = a[j]
+					a[j] = a[j-1]
+					a[j-1] = hold
+						
+					j--
+				}	
+			}
+			return a;	
+		}
 			
 			]]>
 	</fx:Script>
