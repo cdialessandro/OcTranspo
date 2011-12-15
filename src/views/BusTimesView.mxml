@@ -5,7 +5,7 @@
 	
 	</fx:Declarations>
 	<s:List id="newdata" left="0" right="0" top="100" bottom="0"
-			color="#000000" dataProvider="{new_data}" >
+			color="#000000" dataProvider="{new_data}" change="newdata_changeHandler(event)" >
 		
 		<s:itemRenderer>
 			<fx:Component>
@@ -27,15 +27,15 @@
 			import spark.events.IndexChangeEvent;
 			[Bindable]
 			public var home_data:ArrayCollection = new ArrayCollection([
-				{route: "114", num: 114},
-				{route: "97" , num: 97},
-				{route: "118", num: 118},
-				{route: "146", num: 146},
-				{route: "87", num: 87},
-				{route: "1" , num: 1},
-				{route: "86", num: 86},
-				{route: "112", num: 112},
-				{route: "144", num: 144},
+				{route: "114", num: 114, time: "1:00 - 8:00"},
+				{route: "97" , num: 97, time: "1:00 - 8:00" },
+				{route: "118", num: 118, time: "1:00 - 8:00"},
+				{route: "146", num: 146 ,time: "1:00 - 8:00"},
+				{route: "87", num: 87 ,time:"1:00 - 8:00"},
+				{route: "1" , num: 1 ,time: "1:00 - 8:00"},
+				{route: "86", num: 86, time: "1:00 - 8:00"},
+				{route: "112", num: 112, time: "1:00 - 8:00"},
+				{route: "144", num: 144, time: "1:00 - 8:00"},
 				
 				]);
 			[Bindable]
@@ -106,14 +106,20 @@
 				{
 					hold = a[j]
 					a[j] = a[j-1]
-					a[j-1] = hold
-						
+					a[j-1] = hold						
 					j--
 				}	
 			}
 			return a;	
 		}
 			
-			]]>
+			protected function newdata_changeHandler(event:IndexChangeEvent):void
+			{
+				var a:int = newdata.selectedIndex;
+				navigator.pushView(BusTimesDisplay, new_data[a]);
+				
+			}
+			
+		]]>
 	</fx:Script>
 </s:View>
