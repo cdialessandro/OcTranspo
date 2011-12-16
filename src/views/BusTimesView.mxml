@@ -18,8 +18,8 @@
 		</s:itemRenderer>
 		
 	</s:List>
-	<s:TextInput id="textbox" x="10" y="10" width="620" height="82" change="search(textbox.text)"/>
-	<s:Label id="lbl" x="0" y="26" width="47"/>
+	<s:TextInput id="textbox" x="0" y="10" width="99%" height="90" change="search(textbox.text)"
+				 prompt="Enter bus #"/>
 	<fx:Script>
 		<![CDATA[
 			import mx.collections.ArrayCollection;
@@ -28,25 +28,26 @@
 			[Bindable]
 			public var home_data:ArrayCollection = new ArrayCollection([
 				{route: "114", num: 114, time: "1:00 - 8:00"},
-				{route: "97" , num: 97, time: "1:00 - 8:00" },
-				{route: "118", num: 118, time: "1:00 - 8:00"},
-				{route: "146", num: 146 ,time: "1:00 - 8:00"},
-				{route: "87", num: 87 ,time:"1:00 - 8:00"},
-				{route: "1" , num: 1 ,time: "1:00 - 8:00"},
-				{route: "86", num: 86, time: "1:00 - 8:00"},
+				{route: "97" , num: 97, time: "2:00 - 8:00" },
+				{route: "118", num: 118, time: "3:00 - 8:00"},
+				{route: "146", num: 146 ,time: "4:00 - 8:00"},
+				{route: "87", num: 87 ,time:"5:00 - 8:00"},
+				{route: "1" , num: 1 ,time: "6:00 - 8:00"},
+				{route: "86", num: 86, time: "7:00 - 8:00"},
 				{route: "112", num: 112, time: "1:00 - 8:00"},
-				{route: "144", num: 144, time: "1:00 - 8:00"},
+				{route: "144", num: 144, time: "2:00 - 8:00"},
 				
 				]);
 			[Bindable]
 			public var new_data:ArrayCollection = sort(home_data)
 			public var i:int
+			
 			public function search(query:String):void
 			{
 				var hold:Object;
 				new_data=new ArrayCollection();
 				var a:int = 0
-			
+			//hi guys
 				for (i=0;i<home_data.length;i++)
 				{
 					var b:String = home_data[i].route
