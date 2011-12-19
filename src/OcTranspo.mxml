@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:ViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
-							xmlns:s="library://ns.adobe.com/flex/spark" firstView="views.OcTranspoHomeView">
-	<fx:Declarations>
-		
-		
+<s:TabbedViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+								  xmlns:s="library://ns.adobe.com/flex/spark">
+	<s:ViewNavigator label="Home" width="100%" height="100%" firstView="views.OcTranspoHomeView" />
+	<s:ViewNavigator width="100%" height="100%" label="Times" firstView="views.BusTimesView"/>
+	<s:ViewNavigator label="Nearby" width="100%" height="100%" firstView="views.NearbyBussesView"/>
+	<s:ViewNavigator label="Plan" width="100%" height="100%" firstView="views.RoutePlanningView"/>
+	<s:ViewNavigator label="Fav" width="100%" height="100%" firstView="views.FavoritesView"/>
 	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-</s:ViewNavigatorApplication>
+</s:TabbedViewNavigatorApplication>
