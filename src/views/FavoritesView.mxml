@@ -5,7 +5,32 @@
 		
 	</fx:Declarations>
 	<s:VGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center">       
-		
-		<s:Button label="Return to Home Page" click="navigator.popToFirstView()" styleName="back"/>    
+		<s:Button y="337" height="48" label="Start" click="start()"/>
+		<s:Label id="lbla" x="95" width="450"/>
+		<s:Label id="lblb" x="97" width="446"/>
+		<s:Label id="lblc" x="91" width="458"/>
+		 
 	</s:VGroup>
+	<fx:Script>
+		<![CDATA[
+			import flash.sensors.Geolocation;
+			public var gps:Geolocation
+			public function start():void
+			{
+				lbla.text = Geolocation.isSupported.toString()
+			}
+			public function get():void
+			{
+				gps = new Geolocation
+				gps.setRequestedUpdateInterval(500);
+				gps.addEventListener(GeolocationEvent.UPDATE,receive)
+				
+			}
+			public function receive(event:GeolocationEvent):void
+			{
+				lblb.text = event.latitude.toString()
+				lblc.text = event.longitude.toString()
+			}
+		]]>
+	</fx:Script>
 </s:View>
