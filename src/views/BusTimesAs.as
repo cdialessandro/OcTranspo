@@ -1,11 +1,6 @@
-import mx.collections.ArrayCollection;
-
-/*import flash.events.GeolocationEvent;
-import flash.sensors.Geolocation;
 
 import mx.collections.ArrayCollection;
 
-import spark.events.IndexChangeEvent;
 
 [Bindable]
 public var buses:ArrayCollection = new ArrayCollection([
@@ -20,41 +15,23 @@ public var buses:ArrayCollection = new ArrayCollection([
 	{route: "144", num: 144, time: "2:00 - 8:00"},
 	
 ]);
-
-
-[Bindable]
-public var new_data:ArrayCollection = sort_num(buses)
-public var i:int
-
-
-
-public function sort_num (a:ArrayCollection):ArrayCollection
-{
-	var hold:Object
-	var j:int
-	var i:int 
-	
-	for (i = 1; i < (a.length);i++)
+public var stops:ArrayCollection = new ArrayCollection([
+	{number: 1248, busses: [114,118,87]},
+	{number: 4321, busses: [144,1,86]},
+	{number: 2421, busses: [112,86,97]},
+	{number: 4663, busses: [97,118,146]},
+	{number: 1727, busses: [114,87,116]},
+	{number: 1642, busses: [112,86,118]},
+	{number: 3832, busses: [114,144,1]},
+	{number: 6432, busses: [118,98,86]}
+	])
+public var favorites:Array = new Array (1248,2421,4663,1727)
+public function search():void
 	{
-		j=i;
-		while (j > 0 && a[j-1].num > a[j].num)
-		{
-			hold = a[j]
-			a[j] = a[j-1]
-			a[j-1] = hold						
-			j--
-		}	
+		//if anyone is gunna do work
+		//do this function just create a new array and
+		//add all the things that match the criteria in the new array
+		//and make it the data provider
+		//go to github and look at the history of this file
+		//to see how i did it before
 	}
-	return a;	
-}
-*/
-[Bindable]
-public var stops:ArrayCollection([
-	{stop: 1148, buses: [114,95,96]},
-	{stop: 4325, buses: [98,143]} 
-	)]
-public function stopclick():void
-{
-	
-	
-}
