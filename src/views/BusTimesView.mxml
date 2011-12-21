@@ -3,28 +3,18 @@
 		xmlns:s="library://ns.adobe.com/flex/spark" title="Bus Times">
 	<fx:Declarations>
 	</fx:Declarations>
-	<s:List id="newdata" left="0" right="0" top="100" bottom="0"
-			color="#000000" dataProvider="{new_data}" change="newdata_changeHandler(event)" >
-		<s:itemRenderer>
-			<fx:Component>
-				<s:IconItemRenderer
-					label="{data.route}"
-					/>
-			</fx:Component>
-		</s:itemRenderer>
-	</s:List>
+<s:VGroup width="100%" height="100%" verticalCenter="10" >
+	<s:Label  height="43" text="Where are you:"/>
+	<s:TextInput width="100%" height="75" change="lst.visible=false"  />
+
+</s:VGroup>
+<s:List top="180" bottom="0" left ="0" right="0" id="lst" dataProvider="stops">
 	
-	<s:TextInput id="textbox" x="0" y="10" width="99%" height="90" change="search(textbox.text)"
-				 prompt="Enter bus #"/>
+</s:List>
 	<fx:Script>
 		<![CDATA[
 			include "BusTimesAs.as"
-			protected function newdata_changeHandler(event:IndexChangeEvent):void
-			{
-				var a:int = newdata.selectedIndex;
-				navigator.pushView(BusTimesDisplay, new_data[a]);
-				
-			}
+		
 			
 		]]>
 	</fx:Script>

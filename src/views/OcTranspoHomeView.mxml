@@ -7,59 +7,6 @@
 
 	<fx:Declarations>
 	</fx:Declarations>
-	<s:List id="list" left="0" right="0" top="90" bottom="0" change="list_changeHandler(event)"
-			 color="#000000" dataProvider="{home_data}" labelField="lastName">
-		
-		<s:itemRenderer>
-			<fx:Component>
-				<s:IconItemRenderer
-					
-					label="{data.title}"
-					messageField="label"
-				
-				/>
-			</fx:Component>
-		</s:itemRenderer>
-			
-	</s:List>
-
-<fx:Script>
-	<![CDATA[
-		import mx.collections.ArrayCollection;
-		
-		import spark.events.IndexChangeEvent;
-		[Bindable]
-		public var home_data:ArrayCollection = new ArrayCollection([
-			{title: "Bus Times" , label :"Find Your Bus Times"},
-			{title: "Nearby Busses" , label :"Find a Bus Nearby"},
-			{title: "Plan Your Route" , label :"Find The Most Efficient Route"},
-			{title: "Favorites" , label :"Your Favorite Busses"},
-			]);
-		
-
-		
-		protected function list_changeHandler(event:IndexChangeEvent):void
-		{
-			var a:int=list.selectedIndex
-				switch (a)
-				{
-					case 0:
-						navigator.pushView(BusTimesView)
-						break;
-					case 1:
-						navigator.pushView(NearbyBussesView)
-						break;
-					case 2:
-						navigator.pushView(RoutePlanningView)
-						break;
-					case 3:
-						navigator.pushView(FavoritesView)
-						break;
-				
-				}
-		}
-
-	]]>
-</fx:Script>
+	
 
 </s:View>
