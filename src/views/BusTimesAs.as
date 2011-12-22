@@ -7,15 +7,15 @@ import mx.collections.ArrayCollection;
 
 [Bindable]
 public var buses:ArrayCollection = new ArrayCollection([
-	{route: "114", num: 114, time: "1:00 - 8:00"},
-	{route: "97" , num: 97, time: "2:00 - 8:00" },
-	{route: "118", num: 118, time: "3:00 - 8:00"},
-	{route: "146", num: 146 ,time: "4:00 - 8:00"},
-	{route: "87", num: 87 ,time:"5:00 - 8:00"},
-	{route: "1" , num: 1 ,time: "6:00 - 8:00"},
-	{route: "86", num: 86, time: "7:00 - 8:00"},
-	{route: "112", num: 112, time: "1:00 - 8:00"},
-	{route: "144", num: 144, time: "2:00 - 8:00"},
+	{route: "114", num: 114, time: "1:15"},
+	{route: "97" , num: 97, time: "1:03"},
+	{route: "118", num: 118, time: "1:43"},
+	{route: "146", num: 146 ,time: "2:15"},
+	{route: "87", num: 87 ,time:"5:40"},
+	{route: "1" , num: 1 ,time: "2:05"},
+	{route: "86", num: 86, time: "1:53"},
+	{route: "112", num: 112, time: "1:25"},
+	{route: "144", num: 144, time: "1:55"},
 	
 ]);
 [Bindable]
