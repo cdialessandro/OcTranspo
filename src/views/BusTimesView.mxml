@@ -5,11 +5,20 @@
 	</fx:Declarations>
 <s:VGroup width="100%" height="408" verticalCenter="10" >
 	<s:Label  height="44" text="Where are you:"/>
-	<s:TextInput width="100%" height="75"  />
+	<s:TextInput width="100%" height="75" id="input" change="search(input.text)" />
 
 </s:VGroup>
-<s:List top="180" bottom="0" left ="0" right="0" id="lst">
-	
+<s:List top="180" bottom="0" left ="0" right="0" id="lst" dataProvider="{empty}" 
+		click="navigator.pushView(BusTimesDisplay,empty[lst.selectedIndex])">
+	<s:itemRenderer>
+		<fx:Component>
+			<s:IconItemRenderer
+				
+				label="{data.number}"
+				
+				/>
+		</fx:Component>
+	</s:itemRenderer>
 </s:List>
 	<fx:Script>
 		<![CDATA[

@@ -1,6 +1,9 @@
-
 import mx.collections.ArrayCollection;
-
+//i did some work
+//test it out
+//goto the page
+//enter a number and
+//select one
 
 [Bindable]
 public var buses:ArrayCollection = new ArrayCollection([
@@ -15,6 +18,7 @@ public var buses:ArrayCollection = new ArrayCollection([
 	{route: "144", num: 144, time: "2:00 - 8:00"},
 	
 ]);
+[Bindable]
 public var stops:ArrayCollection = new ArrayCollection([
 	{number: 1248, busses: [114,118,87]},
 	{number: 4321, busses: [144,1,86]},
@@ -24,14 +28,58 @@ public var stops:ArrayCollection = new ArrayCollection([
 	{number: 1642, busses: [112,86,118]},
 	{number: 3832, busses: [114,144,1]},
 	{number: 6432, busses: [118,98,86]}
-	])
-public var favorites:Array = new Array (1248,2421,4663,1727)
-public function search():void
+	]);
+
+public var favorites:Array = new Array (1248,2421,4663,1727);
+[Bindable]
+public var empty:ArrayCollection = new ArrayCollection();
+[Bindable]
+public var oempty:ArrayCollection = new ArrayCollection()
+	
+public function search(query:String):void
 	{
-		//if anyone is gunna do work
-		//do this function just create a new array and
-		//add all the things that match the criteria in the new array
-		//and make it the data provider
-		//go to github and look at the history of this file
-		//to see how i did it before
+
+		empty = new ArrayCollection()
+		var a:String
+		var b:int =0
+		if (query.length == 0) 
+		{
+			empty = stops
+			return
+		}
+		for (var i:int=0; i < stops.length;i++)
+		{
+			a= stops[i].number.toString()
+			b=0
+			for (var j:int=0; j<query.length;j++)
+			{
+				if (query.charAt(j) == a.charAt(j)) 
+					{
+					 b++	
+					}
+			}
+			if (b==query.length)
+			{
+				empty.addItem(stops[i])
+			}
+		}
 	}
+public function get_bus_stop(obj:Object):ArrayCollection
+{
+	 
+	var arr:Array = obj.busses
+	oempty = new ArrayCollection()
+
+	for (var i:int=0;i<arr.length;i++)
+	{
+		for (var j:int=0;j<buses.length;j++)
+		{
+			if (arr[i] == buses[j].num)
+			{
+				oempty.addItem(buses[j])
+			}
+		}
+	}
+	return oempty
+
+}
