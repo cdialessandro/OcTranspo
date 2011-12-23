@@ -33,9 +33,9 @@ public var stops:ArrayCollection = new ArrayCollection([
 
 public var favorites:Array = new Array (1248,2421,4663,1727);
 [Bindable]
-public var empty:ArrayCollection = new ArrayCollection();
+public var empty:ArrayCollection = sort(stops);
 [Bindable]
-public var oempty:ArrayCollection = new ArrayCollection()
+public var oempty:ArrayCollection = new ArrayCollection();
 	
 public function search(query:String):void
 	{
@@ -45,7 +45,7 @@ public function search(query:String):void
 		var b:int =0
 		if (query.length == 0) 
 		{
-			empty = stops
+			empty = sort(stops)
 			return
 		}
 		for (var i:int=0; i < stops.length;i++)
@@ -64,7 +64,26 @@ public function search(query:String):void
 				empty.addItem(stops[i])
 			}
 		}
+		stops = sort(stops)
 	}
+public function sort (a:ArrayCollection):ArrayCollection
+{
+	var hold:Object
+	var j:int
+	var i:int 
+	for (i = 1; i < (a.length);i++)
+	{
+		j=i;
+		while (j > 0 && a[j-1].number > a[j].number)
+		{
+			hold = a[j]
+			a[j] = a[j-1]
+			a[j-1] = hold						
+			j--
+		}	
+	}
+	return a;	
+}
 public function get_bus_stop(obj:Object):ArrayCollection
 {
 	 
