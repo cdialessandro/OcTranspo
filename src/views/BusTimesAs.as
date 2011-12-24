@@ -1,10 +1,7 @@
+
+
 import mx.collections.ArrayCollection;
 
-//i did some work
-//test it out
-//goto the page
-//enter a number and
-//select one
 
 [Bindable]
 public var buses:ArrayCollection = new ArrayCollection([

@@ -2,11 +2,44 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		color="#000000"  overlayControls="true" tabBarVisible="true"
-		title="Ottawa Transit +">
+		title="Ottawa Transit +" 
+		creationComplete="tabbedviewnavigatorapplication1_creationCompleteHandler(event)"
+		>
 	
 
 	<fx:Declarations>
+		<s:HTTPService  id="userRequest" url="http://octranspo-data.herokuapp.com/stop/6832" >
+			
+		</s:HTTPService>
 	</fx:Declarations>
-	
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.serialization.json.JSON;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			import mx.rpc.events.ResultEvent;
+			import mx.rpc.http.HTTPService;
+			public var obj:Object
+			
+			protected function tabbedviewnavigatorapplication1_creationCompleteHandler(event:FlexEvent):void
+			{	
+				
+				
+				
+				userRequest.addEventListener(ResultEvent.RESULT,receive)
+				userRequest.send()
+				trace(userRequest.lastResult);
+			}
+			public function receive(e:ResultEvent):void
+			{
+				trace (e)
+				obj = JSON.decode(e.result as String)
+				trace(obj.stop_name);
+			}
 
+		]]>
+	</fx:Script>
+	
 </s:View>
+
