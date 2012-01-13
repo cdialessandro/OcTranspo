@@ -6,6 +6,7 @@
 		creationComplete="tabbedviewnavigatorapplication1_creationCompleteHandler(event)"
 		>
 	
+	
 
 	<fx:Declarations>
 		<s:HTTPService  id="userRequest" url="http://octranspo-data.herokuapp.com/stop/6832" >
@@ -14,7 +15,7 @@
 	</fx:Declarations>
 	<fx:Script>
 		<![CDATA[
-			import com.adobe.serialization.json.JSON;
+			// import com.adobe.serialization.json.JSON;
 			
 			import mx.collections.ArrayCollection;
 			import mx.events.FlexEvent;
@@ -34,12 +35,13 @@
 			public function receive(e:ResultEvent):void
 			{
 				trace (e)
-				obj = JSON.decode(e.result as String)
-				trace(obj.stop_name);
+			//	obj = JSON.decode(e.result as String)
+				//trace(obj.stop_name);
 			}
 
 		]]>
 	</fx:Script>
+	<s:Image x="-255" y="-46" source="assets/OcPic.jpg"/>
 	
 </s:View>
 
