@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Schedule">
+	<fx:Declarations>
+	
+	</fx:Declarations>
+	
+	<s:List top="0" bottom="0" left ="0" right="0" id="lst" dataProvider="{data}"  >
+		<s:itemRenderer>
+			<fx:Component>
+				<s:IconItemRenderer
+
+					
+					/>
+			</fx:Component>
+		</s:itemRenderer>
+		
+	</s:List>
+	
+	<fx:Script>
+		<![CDATA[
+			include "BusTimesAs.as"
+		]]>
+	</fx:Script>
+</s:View>
