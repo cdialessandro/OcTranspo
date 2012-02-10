@@ -11,6 +11,7 @@ package views
 // in the start function 
 //the problem is near the bottom			 
 //--------------------------------------------
+//o and should i be doing it this way?
 
 	public class Servercall
 	{
