@@ -19,19 +19,13 @@
 		<![CDATA[
 			import flash.utils.setTimeout;
 			
-			import views.Servercall;
+			import views.Servercall; // import it
 			public function start():void
 			{
-				var a:Servercall = new Servercall();
-				a.stop_call(1927);
-			    while (!a.get_status())
-				{
-					
-				}				
-				var b:Object = a.get_result()
-				trace(b)
-				trace ('end');
-				
+				var a:Servercall = new Servercall(); // create variable service call
+				a.stop_call(1927); // request info about bus stop
+				var b:Object = a.get_result() // get the results
+				trace(b.stop_name) // if all goes well this should print  "CITY PARK" in the console
 			}
 			
 

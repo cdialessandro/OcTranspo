@@ -4,6 +4,10 @@ package views
 	import mx.collections.ArrayCollection;
 	import mx.rpc.events.ResultEvent;
 	import mx.rpc.http.HTTPService;
+	
+// class for making a call to the server
+// im testing this class in OcTranspoHomeView
+// in the start function 
 
 	public class Servercall
 	{
@@ -11,13 +15,15 @@ package views
 		public var obj:Object;
 		public var arr:ArrayCollection
 		
+		//constructor
 		public function Servercall():void
 		{
-			ready = false;
-			obj = null;
-			arr = null;
+			ready = false; // when results are ready
+			obj = null; // store the results
+			arr = null; // not used yet
+			
 		}
-		
+		//creates the call
 		public function stop_call(stop:int):void
 		{
 			var call:HTTPService =  new HTTPService();
@@ -28,7 +34,7 @@ package views
 			call.send();
 			
 		}
-		
+		//event listner for httpservice
 		private function result_object(e:ResultEvent):void
 		{
 			obj = JSON.decode(e.result as String)
@@ -42,7 +48,7 @@ package views
 			//while (!ready) donothing;   --- i need some sort of altenative for this
 			return obj;
 		}
-		public function get_status():Boolean {return ready;trace (ready)}
+		public function get_status():Boolean {return ready;trace (ready)} 
 		
 			
 				
