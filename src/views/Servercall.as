@@ -5,22 +5,25 @@ package views
 	import mx.rpc.events.ResultEvent;
 	import mx.rpc.http.HTTPService;
 	
+//--------------------------------------------
 // class for making a call to the server
 // im testing this class in OcTranspoHomeView
 // in the start function 
+//the problem is near the bottom			 
+//--------------------------------------------
 
 	public class Servercall
 	{
-		public var ready:Boolean
-		public var obj:Object;
-		public var arr:ArrayCollection
+		public var ready:Boolean // when results are ready
+		public var obj:Object; //store the results
+		public var arr:ArrayCollection // not used yes
 		
 		//constructor
 		public function Servercall():void
 		{
-			ready = false; // when results are ready
-			obj = null; // store the results
-			arr = null; // not used yet
+			ready = false; 
+			obj = null; 
+			arr = null;
 			
 		}
 		//creates the call
@@ -52,10 +55,6 @@ package views
 		//--------------------------------------------------------------------------------------------------------------------
 		public function get_status():Boolean {return ready;trace (ready)} 
 		
-			
 				
-		
-		
-		
 	}
 }
