@@ -42,12 +42,14 @@ package views
 				
 			ready = true;			
 		}
-		
+		// this function is where im having trouble
+		//--------------------------------------------------------------------------------------------------------------------
 		public function get_result():Object
 		{
 			//while (!ready) donothing;   --- i need some sort of altenative for this
 			return obj;
 		}
+		//--------------------------------------------------------------------------------------------------------------------
 		public function get_status():Boolean {return ready;trace (ready)} 
 		
 			
