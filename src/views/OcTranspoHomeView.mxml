@@ -2,20 +2,40 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		color="#000000"  overlayControls="true" tabBarVisible="true"
-		title="Ottawa Transit +" 
-		creationComplete="tabbedviewnavigatorapplication1_creationCompleteHandler(event)"
+		title="Ottawa Transit +"
+		creationComplete="start();"
+		
 		>
-	
+ 
 	
 
 	<fx:Declarations>
+		
 		<s:HTTPService  id="userRequest" url="http://octranspo-data.herokuapp.com/stop/6832" >
 			
 		</s:HTTPService>
 	</fx:Declarations>
 	<fx:Script>
 		<![CDATA[
-			// import com.adobe.serialization.json.JSON;
+			import flash.utils.setTimeout;
+			
+			import views.Servercall;
+			public function start():void
+			{
+				var a:Servercall = new Servercall();
+				a.stop_call(1927);
+			    while (!a.get_status())
+				{
+					
+				}				
+				var b:Object = a.get_result()
+				trace(b)
+				trace ('end');
+				
+			}
+			
+
+			import com.adobe.serialization.json.JSON;
 			
 			import mx.collections.ArrayCollection;
 			import mx.events.FlexEvent;
