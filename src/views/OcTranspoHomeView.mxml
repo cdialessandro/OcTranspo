@@ -23,10 +23,16 @@
 			public function start():void
 			{
 				var a:Servercall = new Servercall(); // create variable service call
-				a.stop_call(1927); // request info about bus stop
-				var b:Object = a.get_result() // get the results
-				trace(b.stop_name) // if all goes well this should print  "CITY PARK" in the console
+				a.stop_call(1723);
+				setTimeout(a.get_status,1000);
+				var b:Object = a.get_result()
+				trace(b.stop_name)
+			
+			 
+					
+	
 			}
+			
 			
 
 			import com.adobe.serialization.json.JSON;

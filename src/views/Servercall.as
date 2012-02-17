@@ -5,6 +5,7 @@ package views
 	import mx.rpc.events.ResultEvent;
 	import mx.rpc.http.HTTPService;
 	
+	
 //--------------------------------------------
 // class for making a call to the server
 // im testing this class in OcTranspoHomeView
@@ -27,7 +28,7 @@ package views
 			arr = null;
 			
 		}
-		//creates the call
+		//call for getting info about stop
 		public function stop_call(stop:int):void
 		{
 			var call:HTTPService =  new HTTPService();
@@ -36,22 +37,22 @@ package views
 			call.resultFormat = "text";
 			call.addEventListener(ResultEvent.RESULT,result_object);
 			call.send();
-			
 		}
+		
 		//event listner for httpservice
 		private function result_object(e:ResultEvent):void
 		{
 			obj = JSON.decode(e.result as String)
-				trace ('100');
-				
+			//trace (obj.stop_name);
 			ready = true;			
 		}
+	
 		// this function is where im having trouble
 		//--------------------------------------------------------------------------------------------------------------------
-		public function get_result():Object
+		public function get_result():Object	
 		{
-			//while (!ready) donothing;   --- i need some sort of altenative for this
-			return obj;
+			if (!ready) return null   //still stuck here
+			else return obj ;
 		}
 		//--------------------------------------------------------------------------------------------------------------------
 		public function get_status():Boolean {return ready;trace (ready)} 
