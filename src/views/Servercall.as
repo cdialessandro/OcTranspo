@@ -1,62 +1,48 @@
 package views
 {
+	import com.adobe.fiber.core.model_public;
 	import com.adobe.serialization.json.JSON;
-	import mx.collections.ArrayCollection;
+	
 	import mx.rpc.events.ResultEvent;
 	import mx.rpc.http.HTTPService;
-	
-	
-//--------------------------------------------
-// class for making a call to the server
-// im testing this class in OcTranspoHomeView
-// in the start function 
-//the problem is near the bottom			 
-//--------------------------------------------
-//o and should i be doing it this way?
-
-	public class Servercall
+	public  class Servercall
 	{
-		public var ready:Boolean // when results are ready
-		public var obj:Object; //store the results
-		public var arr:ArrayCollection // not used yes
-		
-		//constructor
-		public function Servercall():void
+		public var call:HTTPService =  new HTTPService();
+		public function Servercall():void {	call = new HTTPService();}
+	
+		public function stop_call(stop:int,func:Function):void
 		{
-			ready = false; 
-			obj = null; 
-			arr = null;
-			
-		}
-		//call for getting info about stop
-		public function stop_call(stop:int):void
-		{
-			var call:HTTPService =  new HTTPService();
-			var str:String = "http://ec2-184-73-46-4.compute-1.amazonaws.com:3000/stop/" + stop.toString()
+			var str:String = "http://ec2-184-73-46-4.compute-1.amazonaws.com:3000/stop/" + stop.toString();
 			call.url = str;
-			call.resultFormat = "text";
-			call.addEventListener(ResultEvent.RESULT,result_object);
+			call.addEventListener(ResultEvent.RESULT,func)
+			call.send();
+		}
+		public function nearby_stops(lat:Number,lon:Number,range:int,max_results:int,func:Function):void
+		{
+			call.url = "http://ec2-184-73-46-4.compute-1.amazonaws.com:3000/stops/nearest";
+			call.request.latitude = lat.toString();
+			call.request.longitude = lon.toString();
+			call.request.range = range.toString();
+			call.request.max_results = max_results.toString();
+			call.addEventListener(ResultEvent.RESULT,func);
+			call.send();
+		}
+		public function starts_with(query:int,func:Function):void
+		{
+			call.url = "http://ec2-184-73-46-4.compute-1.amazonaws.com:3000/stops";
+			call.request.startswith = query;
+			call.addEventListener(ResultEvent.RESULT,func);
+			call.send();
+		}
+		public function trips_by_stop(stop:int,func:Function):void
+		{
+			var str:String = "http://ec2-184-73-46-4.compute-1.amazonaws.com:3000/trips/by_stop/" + stop.toString();
+			call.url = str;
+			call.addEventListener(ResultEvent.RESULT,func);
 			call.send();
 		}
 		
-		//event listner for httpservice
-		private function result_object(e:ResultEvent):void
-		{
-			obj = JSON.decode(e.result as String)
-			//trace (obj.stop_name);
-			ready = true;			
-		}
-	
-		// this function is where im having trouble
-		//--------------------------------------------------------------------------------------------------------------------
-		public function get_result():Object	
-		{
-			if (!ready) return null   //still stuck here
-			else return obj ;
-		}
-		//--------------------------------------------------------------------------------------------------------------------
-		public function get_status():Boolean {return ready;trace (ready)} 
-		
-				
+
+
 	}
 }
