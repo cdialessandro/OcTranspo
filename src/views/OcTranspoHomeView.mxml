@@ -17,23 +17,20 @@
 	</fx:Declarations>
 	<fx:Script>
 		<![CDATA[
+			import flash.sampler.NewObjectSample;
 			import flash.utils.setTimeout;
 			
 			import views.Servercall; // import it
 			public function start():void
 			{
 				var a:Servercall = new Servercall(); // create variable service call
-				a.stop_call(1723);
-				setTimeout(a.get_status,1000);
-				var b:Object = a.get_result()
-				trace(b.stop_name)
-			
-			 
-					
-	
+				a.trips_by_stop(4629,ret);
 			}
-			
-			
+			public function ret(e:ResultEvent):void
+			{
+				var obj:Object = JSON.decode(e.result as String)	
+					trace (obj.times[0].stop_time.arrival_time)
+			}
 
 			import com.adobe.serialization.json.JSON;
 			

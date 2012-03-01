@@ -41,8 +41,5 @@ package views
 			call.addEventListener(ResultEvent.RESULT,func);
 			call.send();
 		}
-		
-
-
 	}
 }
